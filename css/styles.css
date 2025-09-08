@@ -19,15 +19,16 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.3;
+    line-height: 1;
     color: var(--text-dark);
     overflow-x: hidden;
+    background: #ffffff;
 }
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: 0 auto 0 auto;
+    padding: 0 10px;
 }
 
 /* Navigation */
@@ -38,14 +39,23 @@ body {
     background: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 0rem 0;
-    transition: all 0.3s ease;
+    padding: 0.2rem auto;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s ease forwards;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .nav-brand {
@@ -54,10 +64,20 @@ body {
     color: var(--black);
     font-size: 1.5rem;
     font-weight: 600;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeInLeft 1s ease forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .nav-brand i {
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
     color: var(--accent-color);
 }
 
@@ -71,7 +91,6 @@ body {
     color: var(--black);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
@@ -85,18 +104,30 @@ body {
 }
 
 .hamburger span {
-    width: 10px;
-    height: 0px;
-    background: var(--white);
-    margin: 1px 0;
-    /* transition: 0.3s; */
+    width: 25px;
+    height: 2px;
+    background: var(--text-dark);
+    margin: 4px 0;
+    transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Hero Section */
 .hero {
-    height: 80vh;
+    height: 100vh;
     background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(12, 74, 110, 0.7)),
-                url('https://t4.ftcdn.net/jpg/13/91/63/45/240_F_1391634520_raJ9GY0wQDzPF2Zvt8oHcaFQZnjRwdCT.jpg');
+    url('https://t4.ftcdn.net/jpg/13/91/63/45/240_F_1391634520_raJ9GY0wQDzPF2Zvt8oHcaFQZnjRwdCT.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -110,14 +141,26 @@ body {
 .hero-content {
     z-index: 2;
     max-width: 800px;
-    padding: 0 20px;
+    padding: 0 20px 0 10px;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 5rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1;
 }
 
 .hero p {
@@ -141,7 +184,6 @@ body {
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
     display: inline-block;
 }
 
@@ -203,11 +245,21 @@ section {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.about-text h3:hover {
+    color: var(--accent-color);
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
     color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.about-text p:hover {
+    color: var(--primary-color);
 }
 
 .stats {
@@ -218,6 +270,7 @@ section {
 
 .stat {
     text-align: center;
+    
 }
 
 .stat h4 {
@@ -235,6 +288,13 @@ section {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    border: 3px solid var(--accent-color);
 }
 
 /* Services Section */
@@ -245,12 +305,11 @@ section {
 }
 
 .service-card {
-    background: var(--white);
+    background: #d0e7f9;
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
 .service-card:hover {
@@ -276,7 +335,7 @@ section {
 
 .service-card ul {
     list-style: none;
-    text-align: left;
+    text-align: center;
 }
 
 .service-card li {
@@ -288,6 +347,19 @@ section {
     content: "✓";
     color: var(--sea-green);
     margin-right: 0.5rem;
+}
+
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.service-card img:hover {
+    transform: scale(1.05);
 }
 
 /* Gallery Section */
@@ -312,7 +384,6 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 .gallery-item:hover img {
@@ -331,7 +402,6 @@ section {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .gallery-item:hover .overlay {
@@ -364,6 +434,13 @@ section {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.contact-item:hover {
+    background: var(--bg-light);
+    transform: translateX(5px);
 }
 
 .contact-item i {
@@ -372,9 +449,18 @@ section {
     margin-top: 0.25rem;
 }
 
+.contact-item:hover i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
 .contact-item h4 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+}
+
+.contact-item:hover h4 {
+    color: var(--accent-color);
 }
 
 .contact-form {
@@ -409,6 +495,8 @@ section {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    transform: translateY(-1px);
 }
 
 /* Footer */
@@ -441,7 +529,6 @@ section {
 .footer-section ul li a {
     color: #cbd5e1;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
@@ -463,7 +550,6 @@ section {
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
-    transition: background 0.3s ease;
 }
 
 .social-links a:hover {
@@ -491,8 +577,7 @@ section {
         background-color: var(--primary-color);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
+        padding: 0.2rem 0 0.3rem;
     }
     
     .nav-menu.active {
