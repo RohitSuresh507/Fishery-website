@@ -127,7 +127,7 @@ body {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(12, 74, 110, 0.7)),
-    url('https://t4.ftcdn.net/jpg/13/91/63/45/240_F_1391634520_raJ9GY0wQDzPF2Zvt8oHcaFQZnjRwdCT.jpg');
+        url('https://t4.ftcdn.net/jpg/13/91/63/45/240_F_1391634520_raJ9GY0wQDzPF2Zvt8oHcaFQZnjRwdCT.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -270,7 +270,7 @@ section {
 
 .stat {
     text-align: center;
-    
+
 }
 
 .stat h4 {
@@ -568,7 +568,7 @@ section {
     .hamburger {
         display: flex;
     }
-    
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -579,28 +579,28 @@ section {
         text-align: center;
         padding: 0.2rem 0 0.3rem;
     }
-    
+
     .nav-menu.active {
         left: 0;
     }
-    
+
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero p {
         font-size: 1.1rem;
     }
-    
+
     .about-content,
     .contact-content {
         grid-template-columns: 1fr;
     }
-    
+
     .stats {
         justify-content: center;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
@@ -611,11 +611,11 @@ section {
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .section-header h2 {
         font-size: 2rem;
     }
-    
+
     .container {
         padding: 0 15px;
     }
